@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "------ HOOK START - BUILD -------"
+printenv
+
+if [ "$DOCKER_TAG" == "latest" ]; then
+    echo "Building :latest"
+    docker build -t $IMAGE_NAME .
+else
+    VERSION=($(echo $DOCKER_TAG | tr "." "\n"))
+
+    MAJOR=${VERSION[0]}
+    MINOR=${VERSION[1]}
+
+    echo "Building using version $MAJOR.$MINOR"
+    docker build -t $IMAGE_NAME --build-arg buildtime_BYOND_MAJOR=$MAJOR --build-arg buildtime_BYOND_MINOR=$MINOR .    
+fi
+
+echo "------ HOOK END - BUILD -------"
