@@ -1,7 +1,7 @@
 FROM i386/ubuntu:latest
 
 ARG buildtime_BYOND_MAJOR=513
-ARG buildtime_BYOND_MINOR=1528
+ARG buildtime_BYOND_MINOR=1529
 
 ENV BYOND_MAJOR=$buildtime_BYOND_MAJOR \
     BYOND_MINOR=$buildtime_BYOND_MINOR
