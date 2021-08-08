@@ -1,4 +1,4 @@
-FROM i386/ubuntu:latest
+FROM debian:buster-slim
 
 ARG buildtime_BYOND_MAJOR=513
 ARG buildtime_BYOND_MINOR=1542
@@ -6,12 +6,13 @@ ARG buildtime_BYOND_MINOR=1542
 ENV BYOND_MAJOR=$buildtime_BYOND_MAJOR \
     BYOND_MINOR=$buildtime_BYOND_MINOR
 
-RUN apt-get update \
+RUN dpkg --add-architecture i386 \
+    && apt-get update \
     && apt-get install -y \
     curl \
-    unzip \
     make \
-    libstdc++6 \
+    unzip \
+    libstdc++6:i386 \
     && curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip \
     && unzip byond.zip \
     && cd byond \
