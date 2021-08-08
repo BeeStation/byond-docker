@@ -13,6 +13,8 @@ RUN dpkg --add-architecture i386 \
     make \
     unzip \
     libstdc++6:i386 \
+    libssl1.1:i386 \
+    zlib1g:i386 \
     && curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip \
     && unzip byond.zip \
     && cd byond \
