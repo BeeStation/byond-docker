@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 
-ARG buildtime_BYOND_MAJOR=513
-ARG buildtime_BYOND_MINOR=1542
+ARG buildtime_BYOND_MAJOR=514
+ARG buildtime_BYOND_MINOR=1589
 
 ENV BYOND_MAJOR=$buildtime_BYOND_MAJOR \
     BYOND_MINOR=$buildtime_BYOND_MINOR
